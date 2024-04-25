@@ -12,6 +12,8 @@
 package beans;
 
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.context.ExternalContext;
+import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
 
 @Named
@@ -29,5 +31,18 @@ public class Hello {
 
     public void setName(String user_name) {
         this.name = user_name;
+    }
+    
+    public String logout() {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        ExternalContext externalContext = facesContext.getExternalContext();
+        externalContext.invalidateSession();
+        return "login"; 
+    }
+    
+    public String getCurrentUser() {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        ExternalContext externalContext = facesContext.getExternalContext();
+        return externalContext.getUserPrincipal().getName();
     }
 }

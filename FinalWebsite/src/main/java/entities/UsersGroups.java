@@ -28,12 +28,12 @@ import java.io.Serializable;
 public class UsersGroups implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "GROUPID")
     private String groupid;
+    @Id
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)

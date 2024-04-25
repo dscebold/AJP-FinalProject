@@ -1,9 +1,11 @@
 package jsf;
 
 import entities.Users;
+import entities.UsersGroups;
 import jsf.util.JsfUtil;
 import jsf.util.PaginationHelper;
 import session.UsersJpaController;
+import session.UsersGroupsJpaController;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -31,8 +33,10 @@ public class UsersController implements Serializable {
     private EntityManagerFactory emf = null;
 
     private Users current;
+    private UsersGroups currentUsersGroup; 
     private DataModel items = null;
     private UsersJpaController jpaController = null;
+    private UsersGroupsJpaController jpaGroupController = null;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -44,6 +48,9 @@ public class UsersController implements Serializable {
             current = new Users();
             selectedItemIndex = -1;
         }
+        if(currentUsersGroup == null) {
+            currentUsersGroup = new UsersGroups(); 
+        }
         return current;
     }
 
@@ -52,6 +59,13 @@ public class UsersController implements Serializable {
             jpaController = new UsersJpaController(utx, emf);
         }
         return jpaController;
+    }
+    
+    private UsersGroupsJpaController getGroupJpaController() {
+        if (jpaGroupController == null) {
+            jpaGroupController = new UsersGroupsJpaController(utx, emf);
+        }
+        return jpaGroupController;
     }
 
     public PaginationHelper getPagination() {
@@ -85,13 +99,17 @@ public class UsersController implements Serializable {
 
     public String prepareCreate() {
         current = new Users();
+        currentUsersGroup = new UsersGroups(); 
         selectedItemIndex = -1;
         return "Create";
     }
 
     public String create() {
         try {
+            currentUsersGroup.setUserid(current.getUserid());
+            currentUsersGroup.setGroupid("admin");
             getJpaController().create(current);
+            getGroupJpaController().create(currentUsersGroup);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("resources/Bundle").getString("UsersCreated"));
             return prepareCreate();
         } catch (Exception e) {

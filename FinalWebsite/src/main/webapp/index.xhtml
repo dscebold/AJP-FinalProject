@@ -29,7 +29,7 @@
             <h:inputText id="username"
                          title="My name is: "
                          value="#{hello.name}"
-                         required="true"
+                         required="false"
                          requiredMessage="Error: A name is required."
                          maxlength="25" />
             <p></p>
@@ -37,7 +37,11 @@
             </h:commandButton>
             <h:commandButton id="reset" value="Reset" type="reset">
             </h:commandButton>
-            <a href="#{request.contextPath}/logout">Logout</a>
+            <!--<a href="#{request.contextPath}/logout">Logout</a>-->
+            <h:commandButton id="logout" value="Logout" action="#{password.logout}">
+            </h:commandButton>
+            <h:commandButton id="change-password" value="Change Password" action="change-password">
+            </h:commandButton>
         </h:form>
         <div class="messagecolor">
             <h:messages showSummary="true" 
