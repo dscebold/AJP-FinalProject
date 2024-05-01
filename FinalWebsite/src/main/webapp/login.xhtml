@@ -14,29 +14,39 @@
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-    <head>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="jakarta.faces.html"
+      lang="en">
+    <h:head>
         <title>Login Form</title>
-    </head>
-    <body>
-        <h2>Hello, please log in:</h2>
-        <form method="post" action="j_security_check">
-            <table role="presentation">
+        <h:outputStylesheet library="css" name="login.css"/>
+        <h:outputScript library="js" name="validate.js"/>
+    </h:head>
+    <h:body>
+        <div class="login-title">
+            <h2>
+                LOGIN
+            </h2>
+        </div>
+        <form method="post" action="j_security_check" class="input-box">
+            <table role="presentation" class="center">
                 <tr>
-                    <td>Please type your user name: </td>
+                    <td>Username: </td>
                     <td><input type="text" name="j_username" 
-                               size="20"/></td>
+                               size="20" oninput="checkUsername(this.value)" id="username"/></td>
                 </tr>
                 <tr>
-                    <td>Please type your password: </td>
+                    <td>Password: </td>
                     <td><input type="password" name="j_password" 
-                               size="20"/></td>
+                               size="20" oninput="checkPassword(this.value)" id="password"/></td>
                 </tr>
             </table>
             <p></p>
-            <input type="submit" value="Submit"/>
-            &nbsp;
-            <input type="reset" value="Reset"/>
+            <span>
+                <input type="submit" value="Submit" id="submitButton"/>
+                &nbsp;
+                <input type="reset" value="Reset"/>
+            </span>
         </form>
-    </body>
+    </h:body>
 </html>
