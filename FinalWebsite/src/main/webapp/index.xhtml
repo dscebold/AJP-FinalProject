@@ -37,7 +37,6 @@
             </h:commandButton>
             <h:commandButton id="reset" value="Reset" type="reset">
             </h:commandButton>
-            <!--<a href="#{request.contextPath}/logout">Logout</a>-->
             <h:commandButton id="logout" value="Logout" action="#{password.logout}">
             </h:commandButton>
             <h:commandButton id="change-password" value="Change Password" action="change-password">
@@ -50,9 +49,7 @@
                         infoStyle="color: blue"/>
         </div>
         <br />
-        <h:link outcome="/users/List" value="Show All Users Items"/>
-        <br />
-        <h:link outcome="/usersGroups/List" value="Show All UsersGroups Items"/>
+        <h:link outcome="create-password" value ="Create New Password"/>
     </h:body>
 
 

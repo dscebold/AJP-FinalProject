@@ -58,7 +58,7 @@
         <realm-name>WebsiteJdbcRealm</realm-name>
         <form-login-config>
             <form-login-page>/login.xhtml</form-login-page>
-            <form-error-page>/error.xhtml</form-error-page>
+            <form-error-page>/login.xhtml</form-error-page>
         </form-login-config>
     </login-config>
     <security-role>
