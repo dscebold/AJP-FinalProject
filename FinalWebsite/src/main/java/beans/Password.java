@@ -49,7 +49,10 @@ public class Password {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         ExternalContext externalContext = facesContext.getExternalContext();
         externalContext.invalidateSession();
-        return "login"; 
+        String userName = getCurrentUser();
+        externalContext.getFlash().put("loggedOutUserName", userName);
+        externalContext.invalidateSession();
+        return "logout.xhtml"; 
     }
     
     public String getCurrentUser() {

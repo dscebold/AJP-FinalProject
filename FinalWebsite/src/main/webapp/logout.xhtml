@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html">
+    <h:head>
+        <title>Logged Out</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="logout.css"/>
+        
+    </h:head>
+    <h:body>
+        <div class="container">
+            <h1>#{flash.loggedOutUserName}, you have been logged out.</h1>
+            <p><a href="index.xhtml">Click here</a> to log in again.</p>
+        </div>
+    </h:body>
+</html>
