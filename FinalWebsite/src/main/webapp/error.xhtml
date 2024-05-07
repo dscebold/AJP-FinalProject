@@ -14,17 +14,22 @@
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-    <head>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="jakarta.faces.html"
+      lang="en">
+    <h:head>
         <title>Login Error</title>
-    </head>
-    <body>
-        <h2>Invalid user name or password.</h2>
+        <h:outputStylesheet library="css" name="login.css"/>
+    </h:head>
+    <h:body>
+        <h2 class="login-title">Invalid Username or Password.</h2>
 
-        <p>Please enter a user name or password that is authorized to access
-           this application. For this application, this means a user that
-           has been created in the <code>file</code> realm and has been
-           assigned to the <em>group</em> of <code>TutorialUser</code>.</p>
-        <p><a href="login.xhtml">Return to login page</a></p>
-    </body>
+        <div class="input-box">
+        <p>
+            Please enter a user name or password that is authorized to access
+           this application.</p>
+        <p>
+        <a href="login.xhtml">Return to login page</a></p>
+        </div>
+    </h:body>
 </html>

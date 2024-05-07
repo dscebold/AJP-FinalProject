@@ -52,7 +52,7 @@ public class Password {
         String userName = getCurrentUser();
         externalContext.getFlash().put("loggedOutUserName", userName);
         externalContext.invalidateSession();
-        return "logout.xhtml"; 
+        return "logout"; 
     }
     
     public String getCurrentUser() {

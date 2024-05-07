@@ -101,7 +101,7 @@ public class UsersController implements Serializable {
         current = new Users();
         currentUsersGroup = new UsersGroups(); 
         selectedItemIndex = -1;
-        return "Create";
+        return "create-user";
     }
 
     public String create() {

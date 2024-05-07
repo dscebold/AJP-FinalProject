@@ -29,13 +29,4 @@
             <var>bundle</var>
         </resource-bundle>
     </application>
-    <navigation-rule>
-        <from-view-id>/*.xhtml</from-view-id>
-        <from-view-id>/*.html</from-view-id>
-        <navigation-case>
-            <from-action>#{hello.login}</from-action>
-            <from-outcome>login</from-outcome>
-            <to-view-id>/login.html</to-view-id>
-        </navigation-case>
-    </navigation-rule>
 </faces-config>
