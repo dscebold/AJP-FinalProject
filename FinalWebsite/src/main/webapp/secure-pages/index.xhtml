@@ -1,58 +1,36 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!--
-
-    Copyright (c), Eclipse Foundation, Inc. and its licensors.
-
-    All rights reserved.
-
-    This program and the accompanying materials are made available under the
-    terms of the Eclipse Distribution License v1.0, which is available at
-    https://www.eclipse.org/org/documents/edl-v10.php
-
-    SPDX-License-Identifier: BSD-3-Clause
-
--->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html">
+      xmlns:h="http://java.sun.com/jsf/html">
     <h:head>
-        <title>Facelets Hello Greeting</title>
-        <link rel="stylesheet" type="text/css" href="/hello1-formauth/jsfcrud.xhtml" />
+        <title>Show and Tell</title>
+        <h:outputStylesheet library="css" name="index.css"/>
     </h:head>
     <h:body>
         <h:form>
-            <h:graphicImage url="#{resource['images:duke.waving.gif']}" 
-                            alt="Duke waving his hand"/>
-            <h2>Hello, my name is Duke. What's yours?</h2>
-            <h:inputText id="username"
-                         title="My name is: "
-                         value="#{hello.name}"
-                         required="false"
-                         requiredMessage="Error: A name is required."
-                         maxlength="25" />
-            <p></p>
-            <h:commandButton id="submit" value="Submit" action="response">
-            </h:commandButton>
-            <h:commandButton id="reset" value="Reset" type="reset">
-            </h:commandButton>
-            <h:commandButton id="logout" value="Logout" action="#{password.logout}">
-            </h:commandButton>
-            <h:commandButton id="change-password" value="Change Password" action="change-password">
-            </h:commandButton>
+            <div class="header">
+                <h2>Hiko's Fan Club</h2>
+                <div class="top-right-buttons">
+                    <h:commandButton id="change-password" value="Change Password" action="change-password" styleClass="top-right-button button"/>
+                    <h:commandButton id="logout" value="Logout" action="logout" styleClass="top-right-button button"/>
+                </div>
+            </div>
+            <div class="gallery">
+                <h:graphicImage url="#{resource['images:hiko1.jpg']}" alt="Hiko in dragon costume" styleClass="img"/>
+                <h:graphicImage url="#{resource['images:hiko2.jpg']}" alt="Hiko sploot" styleClass="img"/>
+                <h:graphicImage url="#{resource['images:hiko3.jpg']}" alt="Hiko pose" styleClass="img"/>
+                <h:graphicImage url="#{resource['images:hiko4.jpg']}" alt="Hiko sleeping 1" styleClass="img"/>
+                <h:graphicImage url="#{resource['images:hiko5.jpg']}" alt="Hiko in car" styleClass="img"/>
+                <h:graphicImage url="#{resource['images:hiko6.jpg']}" alt="Hiko sleeping 2" styleClass="img"/>
+                <h:graphicImage url="#{resource['images:hiko7.jpg']}" alt="Hiko snoot" styleClass="img"/>
+                <h:graphicImage url="#{resource['images:hiko8.jpg']}" alt="Hiko face" styleClass="img"/>
+                <h:graphicImage url="#{resource['images:hiko9.jpg']}" alt="Hiko play pose" styleClass="img"/>
+                <h:graphicImage url="#{resource['images:hiko10.jpg']}" alt="Hiko chasing" styleClass="img"/>
+                <h:graphicImage url="#{resource['images:hiko11.jpg']}" alt="Hiko belly up" styleClass="img"/>
+                <h:graphicImage url="#{resource['images:hiko12.jpg']}" alt="Hiko handsome" styleClass="img"/>
+            </div>
         </h:form>
-        <div class="messagecolor">
-            <h:messages showSummary="true" 
-                        showDetail="false"
-                        errorStyle="color: #d20005" 
-                        infoStyle="color: blue"/>
-        </div>
-        <br />
-        <h:link outcome="/create-user" value ="Create New User"/>
-        <br/>
-        <br/>
-        <h:link outcome="/login" value="Login"/>
     </h:body>
 </html>
-

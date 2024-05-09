@@ -20,7 +20,7 @@
     <h:head>
         <title>Login Form</title>
         <h:outputStylesheet library="css" name="login.css"/>
-        <h:outputScript library="js" name="validate.js"/>
+        <h:outputScript library="js" name="login-validate.js"/>
     </h:head>
     <h:body>
         <div class="login-title">
@@ -42,10 +42,11 @@
                 </tr>
             </table>
             <p></p>
+            <p class="error" id="error" hidden="true">Your Password must be at least 8 characters long!</p>
             <span>
-                <input type="submit" value="Submit" id="submitButton"/>
+                <input type="submit" value="Submit" id="submitButton" class="button"/>
                 &nbsp;
-                <input type="reset" value="Reset"/>
+                <input type="reset" value="Reset" class="button"/>
             </span>
         </form>
     </h:body>

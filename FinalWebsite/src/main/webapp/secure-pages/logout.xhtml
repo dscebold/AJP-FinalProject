@@ -13,9 +13,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         
     </h:head>
     <h:body>
-        <div class="container">
-            <h1>#{flash.loggedOutUserName}, you have been logged out.</h1>
-            <p><a href="index.xhtml">Click here</a> to log in again.</p>
+        <h:form>
+            <div class="container">
+                <h1>#{password.currentUser}, are you sure you want to log out.</h1>
+            <p><h:commandLink action="#{password.logout}" value="Click here"/> to confirm logout.</p>
         </div>
+        </h:form>
     </h:body>
 </html>
