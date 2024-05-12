@@ -6,23 +6,32 @@
 
     <h:head>
         <h:outputStylesheet library="css" name="create_user.css"/>
+        <h:outputScript library="js" name="new-user-validate.js"/>
+        <title>Create User</title>
     </h:head>
 
     <h:body>
         <h:panelGroup id="messagePanel" layout="block">
             <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
         </h:panelGroup>
-        <h:form>
+        <div class="title-box">
+            <h2>
+                Create New User
+            </h2>
+        </div>
+        <h:form class="new-user-box" id="form">
             <h:panelGrid columns="2">
                 <h:outputLabel value="User ID" for="userid" />
                 <h:inputText id="userid" value="#{usersController.selected.userid}" title="#{bundle.CreateUsersTitle_userid}" required="true" requiredMessage="#{bundle.CreateUsersRequiredMessage_userid}"/>
                 <h:outputLabel value="Password" for="password" />
-                <h:inputText id="password" value="#{usersController.selected.password}" title="#{bundle.CreateUsersTitle_password}" required="true" requiredMessage="#{bundle.CreateUsersRequiredMessage_password}"/>
+                <h:inputText id="password" value="#{usersController.selected.password}" title="#{bundle.CreateUsersTitle_password}" required="true" requiredMessage="#{bundle.CreateUsersRequiredMessage_password}" onkeyup="checkPassword(this.value)"/>
             </h:panelGrid>
             <br/>
+            <p class="error" id="error" hidden="true">Your Password must be at least 8 characters long!</p>
             <h:panelGroup layout="block" >
-                <h:commandButton action="#{usersController.create}" value="Create" styleClass="button" style="margin-right: 10px;"/>
-                <h:link outcome="/secure-pages/index" value="Login" styleClass="button"/>
+                <h:commandButton action="#{usersController.create}" value="Create" styleClass="button" style="margin-right: 10px;" id="create-button" disabled="true"/>
+                <h:commandButton action="/secure-pages/index" value="Login" styleClass="button"/>
+                <h:commandButton action="landing" value="Landing Page" styleClass="button"/>
             </h:panelGroup>
         </h:form>
     </h:body>

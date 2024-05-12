@@ -62,3 +62,27 @@ html {
 .button:hover {
     background-color: #0056b3;
 }
+
+.title-box {
+    margin: auto;
+    width: auto;
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-size: 60px;
+    text-align: center;
+}
+
+.new-user-box {
+    margin: auto;
+    width: fit-content;
+    padding: 20px; 
+    background-color: #FFFFFF;
+    font-size: 30px;
+    text-align: center
+}
+
+.error{
+    color: red;
+    font-size: 15px;
+    text-align: center; 
+}
